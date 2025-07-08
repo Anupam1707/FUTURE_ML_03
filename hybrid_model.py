@@ -66,10 +66,18 @@ def get_chatbot_response(user_input):
 
     if is_connected() and llm:
         try:
-            prompt = (
-                f"User asked: '{user_input}'. "
-                f"Frame your reply based on internal system (DO NOT REDUCE THE CONTENT SIZE): '{base_response}'."
-            )
+            prompt = f"""
+        You are a support assistant.
+        
+        The user's query is:
+        \"\"\"{user_input}\"\"\"
+        
+        The intent classifier suggests this response:
+        \"\"\"{base_response}\"\"\"
+        
+        Do not mention the classifier or repeat the input. Do not acknowledge the query. 
+        Return ONLY the improved support response in a clear, friendly tone.
+        """
             messages = [HumanMessage(content=prompt)]
             reply = llm.invoke(messages).content.strip()
             return reply
