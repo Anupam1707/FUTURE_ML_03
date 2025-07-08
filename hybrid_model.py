@@ -68,7 +68,7 @@ def get_chatbot_response(user_input):
         try:
             prompt = (
                 f"User asked: '{user_input}'. "
-                f"Frame your reply based on internal system: '{base_response}'."
+                f"Frame your reply based on internal system (DO NOT REDUCE THE CONTENT SIZE): '{base_response}'."
             )
             messages = [HumanMessage(content=prompt)]
             reply = llm.invoke(messages).content.strip()
