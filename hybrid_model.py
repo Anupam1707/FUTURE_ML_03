@@ -68,8 +68,7 @@ def get_chatbot_response(user_input):
         try:
             prompt = (
                 f"User asked: '{user_input}'. "
-                f"Suggested reply based on internal system: '{base_response}'. "
-                "Improve and personalize this reply in a conversational tone. Give the Best Response out of your Suggestions without acknowledging about what you're doing."
+                f"Frame your reply based on internal system: '{base_response}'."
             )
             messages = [HumanMessage(content=prompt)]
             reply = llm.invoke(messages).content.strip()
