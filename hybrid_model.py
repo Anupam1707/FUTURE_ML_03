@@ -77,6 +77,7 @@ def get_chatbot_response(user_input):
         
         Do not mention the classifier or repeat the input. Do not acknowledge the query. 
         Return ONLY the improved support response in a clear, friendly tone.
+        If needed Blindly answer as well
         """
             messages = [HumanMessage(content=prompt)]
             reply = llm.invoke(messages).content.strip()
