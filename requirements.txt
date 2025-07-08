@@ -1,0 +1,9 @@
+streamlit
+scikit-learn
+pandas
+joblib
+langchain
+langchain-google-genai
+langchain-core
+google-generativeai
+tqdm
